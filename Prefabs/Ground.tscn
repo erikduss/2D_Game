@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://1hhyifdkyyus"]
 
-[ext_resource type="Texture2D" uid="uid://delu2pf5r5x7f" path="res://Imported_Assets/2D Hand Painted Grassland Tileset/Assets/Cut_Tiles/tile050.png" id="1_fyo2q"]
+[ext_resource type="Texture2D" uid="uid://c2uu7n7kwx1qv" path="res://icon.svg" id="1_a2eg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acjun"]
 size = Vector2(125, 127)
 
 [node name="Tile050" type="Sprite2D"]
-texture = ExtResource("1_fyo2q")
+texture = ExtResource("1_a2eg6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

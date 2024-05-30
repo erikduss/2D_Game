@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="2d Game"
-run/main_scene="res://TestScene.tscn"
+run/main_scene="res://GameScene/TestScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,8 +19,6 @@ config/icon="res://icon.svg"
 
 ModLoaderStore="*res://addons/mod_loader/mod_loader_store.gd"
 ModLoader="*res://addons/mod_loader/mod_loader.gd"
-Enums="*res://Scripts/Enums.gd"
-BaseSettings="*res://Scripts/BaseSettings.gd"
 
 [dotnet]
 

@@ -3,7 +3,7 @@ using System;
 
 namespace Erikduss
 {
-	public partial class BaseSettings : Node
+	public partial class BaseSettingsManager : Node
 	{
 		protected String directoryLocation = "user://Settings//Player//";
 		protected String fileName = "PlayerGlobalSettings.cfg";

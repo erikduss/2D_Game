@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbq8vc1qss082"]
+
+[ext_resource type="PackedScene" uid="uid://drc43o1bwaap8" path="res://Prefabs/player.tscn" id="1_36n78"]
+[ext_resource type="PackedScene" uid="uid://1hhyifdkyyus" path="res://Prefabs/Ground.tscn" id="3_c6ilp"]
+[ext_resource type="Script" path="res://Scripts/C#_Scripts/Utility/Settings/Managers/WorldSettingsManager.cs" id="4_c50dc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_36n78")]
+z_index = 5
+
+[node name="Tile050" parent="." instance=ExtResource("3_c6ilp")]
+position = Vector2(1, 115)
+
+[node name="Tile050" parent="Tile050" instance=ExtResource("3_c6ilp")]
+position = Vector2(128, 0)
+
+[node name="Tile050" parent="Tile050/Tile050" instance=ExtResource("3_c6ilp")]
+position = Vector2(128, 0)
+
+[node name="Tile050" parent="Tile050/Tile050/Tile050" instance=ExtResource("3_c6ilp")]
+position = Vector2(128, 0)
+
+[node name="Tile050" parent="Tile050/Tile050/Tile050/Tile050" instance=ExtResource("3_c6ilp")]
+position = Vector2(128, 0)
+
+[node name="WorldSettingsManager" type="Node2D" parent="."]
+script = ExtResource("4_c50dc")
