@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=3 uid="uid://drc43o1bwaap8"]
+
+[ext_resource type="Script" path="res://Prefabs/PlayerMovement.gd" id="1_c4vy0"]
+[ext_resource type="Texture2D" uid="uid://ca0qg2tb674ql" path="res://Project_Assets/Player/DragonBorn_Warrior_Idle_00.png" id="2_6twed"]
+[ext_resource type="Texture2D" uid="uid://bsk0cq3i1na1i" path="res://Project_Assets/Player/DragonBorn_Warrior_Idle_01.png" id="3_065kl"]
+[ext_resource type="Texture2D" uid="uid://bkda1qo705m0q" path="res://Project_Assets/Player/DragonBorn_Warrior_Idle_02.png" id="4_57iln"]
+[ext_resource type="Texture2D" uid="uid://d2xytwoe3rb67" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_00.png" id="5_614hb"]
+[ext_resource type="Texture2D" uid="uid://bmkfnxi5hye77" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_01.png" id="6_402yg"]
+[ext_resource type="Texture2D" uid="uid://bq0xlmfnqd7yv" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_02.png" id="7_cm3aj"]
+[ext_resource type="Texture2D" uid="uid://cjac85t5ojayv" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_03.png" id="8_sdj3v"]
+[ext_resource type="Texture2D" uid="uid://ca1ubua8s70qj" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_04.png" id="9_6lm8r"]
+[ext_resource type="Texture2D" uid="uid://dykbipmgpoa16" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_05.png" id="10_d3isr"]
+[ext_resource type="Texture2D" uid="uid://cmfs68fnyw4pb" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_06.png" id="11_o7nu3"]
+[ext_resource type="Texture2D" uid="uid://imqw37vgdq5" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_07.png" id="12_xxb3g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4gki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6twed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_065kl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_57iln")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_614hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_402yg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cm3aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sdj3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6lm8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d3isr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_o7nu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xxb3g")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15tag"]
+size = Vector2(6.66667, 12.3333)
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_c4vy0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_h4gki")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, 13.5)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_15tag")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+process_callback = 0
+position_smoothing_enabled = true
