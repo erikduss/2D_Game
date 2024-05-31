@@ -30,16 +30,25 @@ namespace Erikduss
             if (!IsOnFloor())
 			{
 				isInTheAir = true;
+                
                 velocity.Y += gravity * (float)delta;
             }
 			else
 			{
-				isInTheAir = false;
+				if (isInTheAir)
+				{
+                    isInTheAir = false;
+                    playerSpriteAnimator.Play("Idle");
+                }
 			}
 
 			// Handle Jump.
 			if (Input.IsActionJustPressed("Jump") && IsOnFloor())
-				velocity.Y = jumpVelocity;
+			{
+                velocity.Y = jumpVelocity;
+                playerSpriteAnimator.Play("Falling");
+            }
+				
 
 			// Get the input direction and handle the movement/deceleration.
 			float direction = Input.GetAxis("Left", "Right");
@@ -71,7 +80,7 @@ namespace Erikduss
 				else if (isMoving && isInTheAir)
 				{
                     isMoving = false;
-                    playerSpriteAnimator.Play("Idle");
+                    playerSpriteAnimator.Play("Falling");
                 }
 
 				velocity.X = direction * movementSpeed;

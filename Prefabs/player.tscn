@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://drc43o1bwaap8"]
+[gd_scene load_steps=18 format=3 uid="uid://drc43o1bwaap8"]
 
 [ext_resource type="Script" path="res://Scripts/C#_Scripts/Character/PlayerManager.cs" id="1_ami53"]
 [ext_resource type="Script" path="res://Scripts/C#_Scripts/Character/PlayerLocomotion.cs" id="1_mvcub"]
 [ext_resource type="Texture2D" uid="uid://ca0qg2tb674ql" path="res://Project_Assets/Player/DragonBorn_Warrior_Idle_00.png" id="2_6twed"]
 [ext_resource type="Texture2D" uid="uid://bsk0cq3i1na1i" path="res://Project_Assets/Player/DragonBorn_Warrior_Idle_01.png" id="3_065kl"]
+[ext_resource type="Texture2D" uid="uid://dhjpdal8utq5i" path="res://Project_Assets/Player/DragonBorn_Warrior_Falling_00.png" id="3_nolpa"]
 [ext_resource type="Texture2D" uid="uid://bkda1qo705m0q" path="res://Project_Assets/Player/DragonBorn_Warrior_Idle_02.png" id="4_57iln"]
+[ext_resource type="Texture2D" uid="uid://dhyi8ls6e7nw4" path="res://Project_Assets/Player/DragonBorn_Warrior_Falling_01.png" id="4_m2khq"]
 [ext_resource type="Texture2D" uid="uid://d2xytwoe3rb67" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_00.png" id="5_614hb"]
 [ext_resource type="Texture2D" uid="uid://bmkfnxi5hye77" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_01.png" id="6_402yg"]
 [ext_resource type="Texture2D" uid="uid://bq0xlmfnqd7yv" path="res://Project_Assets/Player/DragonBorn_Warrior_Moving_02.png" id="7_cm3aj"]
@@ -16,6 +18,17 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h4gki"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nolpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m2khq")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_6twed")

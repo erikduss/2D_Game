@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8uuu7fgl3oi4"]
+
+[ext_resource type="Script" path="res://Scripts/C#_Scripts/Terrain/TileRandomTexture.cs" id="1_odoeo"]
+[ext_resource type="Texture2D" uid="uid://bamm4tracgvvl" path="res://Project_Assets/Tiles/Edges/Right/Grass_Right_00.png" id="2_7opj3"]
+[ext_resource type="Texture2D" uid="uid://d3sj4b15f011v" path="res://Project_Assets/Tiles/Edges/Right/Grass_Right_01.png" id="3_uh8pb"]
+[ext_resource type="Texture2D" uid="uid://d3v6p27g2vmqb" path="res://Project_Assets/Tiles/Edges/Right/Grass_Right_02.png" id="4_qkm7c"]
+[ext_resource type="Texture2D" uid="uid://tdogw53ftxy0" path="res://Project_Assets/Tiles/Edges/Right/Grass_Right_03.png" id="5_uo7m5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhcpn"]
+size = Vector2(64, 49)
+
+[node name="GroundTileLeftCorner" type="Node2D"]
+script = ExtResource("1_odoeo")
+
+[node name="GrassRight00" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_7opj3")
+
+[node name="GrassRight01" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_uh8pb")
+
+[node name="GrassRight02" type="Sprite2D" parent="."]
+texture = ExtResource("4_qkm7c")
+
+[node name="GrassRight03" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_uo7m5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_uhcpn")
