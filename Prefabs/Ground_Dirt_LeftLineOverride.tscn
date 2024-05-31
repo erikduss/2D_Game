@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://du8282ujhh7vj"]
+
+[ext_resource type="Texture2D" uid="uid://hudrl6glhh0o" path="res://Project_Assets/Tiles/Edges/Override_Left_Edge.png" id="1_a3tpn"]
+
+[node name="GroundOverrideLeftEdge" type="Node2D"]
+
+[node name="OverrideLeftEdge" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_a3tpn")

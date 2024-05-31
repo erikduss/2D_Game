@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cflgnkaplr42s"]
+
+[ext_resource type="Texture2D" uid="uid://mantec2es1fk" path="res://Project_Assets/Tiles/Edges/Override_Right_Edge.png" id="1_e0yfg"]
+
+[node name="GroundOverrideRightEdge" type="Node2D"]
+
+[node name="OverrideRightEdge" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_e0yfg")

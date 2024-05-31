@@ -81,10 +81,10 @@ visible = false
 texture = ExtResource("15_csapi")
 
 [node name="DirtTile14" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("16_ocndo")
 
 [node name="DirtTile15" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("17_dbix3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
