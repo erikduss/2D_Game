@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://5vb5jh6it8on"]
+
+[ext_resource type="Texture2D" uid="uid://cjke3aoju2eis" path="res://Project_Assets/Tiles/Grass_00.png" id="1_44bs1"]
+[ext_resource type="Script" path="res://Scripts/C#_Scripts/Terrain/TileRandomTexture.cs" id="1_qwigx"]
+[ext_resource type="Texture2D" uid="uid://ct15aq0y75yi" path="res://Project_Assets/Tiles/Grass_01.png" id="2_lxocf"]
+[ext_resource type="Texture2D" uid="uid://d6mxbcu2m8yb" path="res://Project_Assets/Tiles/Grass_02.png" id="3_gfxdb"]
+[ext_resource type="Texture2D" uid="uid://d2mynlqppduqt" path="res://Project_Assets/Tiles/Grass_03.png" id="4_1pin4"]
+[ext_resource type="Texture2D" uid="uid://siyk7h6qpis2" path="res://Project_Assets/Tiles/Grass_04.png" id="5_t8af8"]
+[ext_resource type="Texture2D" uid="uid://b7hxtc5rh6128" path="res://Project_Assets/Tiles/Grass_05.png" id="6_qq6of"]
+[ext_resource type="Texture2D" uid="uid://bl6ptipakydhs" path="res://Project_Assets/Tiles/Grass_06.png" id="7_eo3ja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhcpn"]
+size = Vector2(64, 49)
+
+[node name="GroundTile" type="Node2D"]
+script = ExtResource("1_qwigx")
+
+[node name="Grass00" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_44bs1")
+
+[node name="Grass01" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_lxocf")
+
+[node name="Grass02" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_gfxdb")
+
+[node name="Grass03" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_1pin4")
+
+[node name="Grass04" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_t8af8")
+
+[node name="Grass05" type="Sprite2D" parent="."]
+texture = ExtResource("6_qq6of")
+
+[node name="Grass06" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_eo3ja")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_uhcpn")
