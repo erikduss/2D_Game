@@ -24,6 +24,8 @@ namespace Erikduss
 
 		public override void _PhysicsProcess(double delta)
 		{
+			if (!PlayerManager.Instance.isLoaded) return;
+
 			Vector2 velocity = Velocity;
 
             // Add the gravity.

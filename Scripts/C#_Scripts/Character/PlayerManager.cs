@@ -8,6 +8,8 @@ public partial class PlayerManager : Node2D
 
 	public PlayerLocomotion playerLocomotion;
 
+	public bool isLoaded = false;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
