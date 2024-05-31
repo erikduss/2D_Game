@@ -6,6 +6,7 @@ public partial class GrassWorldGenerator : Node
 	public PackedScene grassGroundTilePrefab;
 	public PackedScene grassGroundLeftCornerTilePrefab;
 	public PackedScene grassGroundRightCornerTilePrefab;
+	public PackedScene grassGroundDirtTilePrefab;
 
 	//General Tile info
 	public int tileSize = 64;
@@ -33,6 +34,11 @@ public partial class GrassWorldGenerator : Node
 	public int maxAmountOfWorldTileLength = 1000;
 	public int minAmountOfWorldTileLength = 250;
 
+	//Extra Generation
+	public int amountOfDirtTilesBelowGrass;
+	public int minAmountOfDirtTilesPerTile = 10;
+	public int maxAmountOfDirtTilesPerTile = 20;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -40,9 +46,10 @@ public partial class GrassWorldGenerator : Node
 		grassGroundTilePrefab = GD.Load<PackedScene>("res://Prefabs//Ground_Tile.tscn");
         grassGroundLeftCornerTilePrefab = GD.Load<PackedScene>("res://Prefabs//Ground_Tile_Left_Corner.tscn");
         grassGroundRightCornerTilePrefab = GD.Load<PackedScene>("res://Prefabs//Ground_Tile_Right_Corner.tscn");
+		grassGroundDirtTilePrefab = GD.Load<PackedScene>("res://Prefabs//Ground_Dirt_Tile.tscn");
 
-		//This should be done when values are loaded form file.
-		GenerateRandomValuesForGeneration();
+        //This should be done when values are loaded form file.
+        GenerateRandomValuesForGeneration();
 
         GenerateWorld();
     }
@@ -88,12 +95,33 @@ public partial class GrassWorldGenerator : Node
 		{
             chanceToGoDownInsteadOfUp = (int)(GD.Randi() % (maxChanceToGoDownInsteadOfUp - minChanceToGoDownInsteadOfUp) + minChanceToGoDownInsteadOfUp);
         }
+
+        if (maxAmountOfDirtTilesPerTile - minAmountOfDirtTilesPerTile == 0)
+        {
+            amountOfDirtTilesBelowGrass = minAmountOfDirtTilesPerTile;
+        }
+        else
+        {
+            amountOfDirtTilesBelowGrass = (int)(GD.Randi() % (maxAmountOfDirtTilesPerTile - minAmountOfDirtTilesPerTile) + minAmountOfDirtTilesPerTile);
+        }
     }
 
 	public void GenerateWorld()
 	{
 		GenerateGround();
     }
+
+	public void AddDirtBelowTile(int tileX, float tileYStart)
+	{
+		for(int i = 0; i < amountOfDirtTilesBelowGrass; i++)
+		{
+            Node2D tileInstance = (Node2D)grassGroundDirtTilePrefab.Instantiate();
+            tileInstance.GlobalPosition = new Vector2(tileX, tileYStart + ((i+1) * tileSize));
+
+            tileInstance.Name = "Dirt_Tile_" + tileX + "_" + i;
+            AddChild(tileInstance);
+        }
+	}
 
 	public void GenerateGround()
 	{
@@ -116,6 +144,9 @@ public partial class GrassWorldGenerator : Node
                     //We go down -> using right corner
                     Node2D tileInstance = (Node2D)grassGroundRightCornerTilePrefab.Instantiate();
                     tileInstance.GlobalPosition = new Vector2(i * tileSize, lastTileYValue);
+
+					AddDirtBelowTile(i * tileSize, lastTileYValue);
+
                     //we adjust the tileYValue variable.
                     lastTileYValue += tileSize;
                     tileInstance.Name = "Right_Corner_Down_Tile_" + i;
@@ -128,6 +159,9 @@ public partial class GrassWorldGenerator : Node
                     //we adjust the tileYValue variable, we do this after because the next tile should be affected. Not this one.
                     lastTileYValue -= tileSize;
                     tileInstance.GlobalPosition = new Vector2(i * tileSize, lastTileYValue);
+
+                    AddDirtBelowTile(i * tileSize, lastTileYValue);
+
                     tileInstance.Name = "Left_Corner_Up_Tile_" + i;
                     AddChild(tileInstance);
                 }
@@ -137,6 +171,9 @@ public partial class GrassWorldGenerator : Node
 				lastTileWasHeightChange = false;
                 Node2D tileInstance = (Node2D)grassGroundTilePrefab.Instantiate();
                 tileInstance.GlobalPosition = new Vector2(i * tileSize, lastTileYValue);
+
+                AddDirtBelowTile(i * tileSize, lastTileYValue);
+
                 tileInstance.Name = "Tile_" + i;
                 AddChild(tileInstance);
             }
@@ -147,6 +184,9 @@ public partial class GrassWorldGenerator : Node
 		{
             Node2D tileInstance = (Node2D)grassGroundTilePrefab.Instantiate();
             tileInstance.GlobalPosition = new Vector2((i+1) * -tileSize, tileStartingPosition.Y);
+
+            AddDirtBelowTile((i + 1) * -tileSize, tileStartingPosition.Y);
+
             tileInstance.Name = "Tile_Back_" + i;
             AddChild(tileInstance);
         }

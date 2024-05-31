@@ -1,0 +1,93 @@
+[gd_scene load_steps=19 format=3 uid="uid://cwequg2fidlhf"]
+
+[ext_resource type="Script" path="res://Scripts/C#_Scripts/Terrain/TileRandomTexture.cs" id="1_814ks"]
+[ext_resource type="Texture2D" uid="uid://t4jgihcqxn0b" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_00.png" id="2_08h2j"]
+[ext_resource type="Texture2D" uid="uid://bhsxfighphrj1" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_01.png" id="3_7v4x8"]
+[ext_resource type="Texture2D" uid="uid://bhvknu3qulkst" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_02.png" id="4_0vd4c"]
+[ext_resource type="Texture2D" uid="uid://cw4fdjub7k1fo" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_03.png" id="5_1rqrq"]
+[ext_resource type="Texture2D" uid="uid://dsr437f5lthq" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_04.png" id="6_t0ki3"]
+[ext_resource type="Texture2D" uid="uid://d15dmr3vp87e7" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_05.png" id="7_75avl"]
+[ext_resource type="Texture2D" uid="uid://jtrd3t2fppoq" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_06.png" id="8_a7jl5"]
+[ext_resource type="Texture2D" uid="uid://c5j7hhuukc2qq" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_07.png" id="9_f3vfd"]
+[ext_resource type="Texture2D" uid="uid://dv4wrvwhcp4k8" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_08.png" id="10_oa4d3"]
+[ext_resource type="Texture2D" uid="uid://bqxx5g87mdixu" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_09.png" id="11_7e80k"]
+[ext_resource type="Texture2D" uid="uid://q8uncy4g5p7f" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_10.png" id="12_0fi4m"]
+[ext_resource type="Texture2D" uid="uid://dncxkt6cwqf4l" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_11.png" id="13_clged"]
+[ext_resource type="Texture2D" uid="uid://d4lmpjr1yoepq" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_12.png" id="14_xjs0r"]
+[ext_resource type="Texture2D" uid="uid://41wqeg7lt06p" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_13.png" id="15_csapi"]
+[ext_resource type="Texture2D" uid="uid://bqxhiuy4gdjo7" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_14.png" id="16_ocndo"]
+[ext_resource type="Texture2D" uid="uid://cuamiwjis0w8b" path="res://Project_Assets/Tiles/Dirt/Dirt_Tile_15.png" id="17_dbix3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhcpn"]
+size = Vector2(64, 64)
+
+[node name="GroundDirtTile" type="Node2D"]
+script = ExtResource("1_814ks")
+
+[node name="DirtTile00" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_08h2j")
+
+[node name="DirtTile01" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_7v4x8")
+
+[node name="DirtTile02" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_0vd4c")
+
+[node name="DirtTile03" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_1rqrq")
+
+[node name="DirtTile04" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_t0ki3")
+
+[node name="DirtTile05" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_75avl")
+
+[node name="DirtTile06" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_a7jl5")
+
+[node name="DirtTile07" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("9_f3vfd")
+
+[node name="DirtTile08" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("10_oa4d3")
+
+[node name="DirtTile09" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("11_7e80k")
+
+[node name="DirtTile10" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("12_0fi4m")
+
+[node name="DirtTile11" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("13_clged")
+
+[node name="DirtTile12" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("14_xjs0r")
+
+[node name="DirtTile13" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("15_csapi")
+
+[node name="DirtTile14" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("16_ocndo")
+
+[node name="DirtTile15" type="Sprite2D" parent="."]
+texture = ExtResource("17_dbix3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_uhcpn")

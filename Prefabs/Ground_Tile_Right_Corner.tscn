@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhcpn"]
 size = Vector2(64, 49)
 
-[node name="GroundTileLeftCorner" type="Node2D"]
+[node name="GroundTileRightCorner" type="Node2D"]
 script = ExtResource("1_odoeo")
 
 [node name="GrassRight00" type="Sprite2D" parent="."]
