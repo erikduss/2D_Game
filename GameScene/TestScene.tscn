@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbq8vc1qss082"]
+[gd_scene load_steps=7 format=3 uid="uid://bbq8vc1qss082"]
 
 [ext_resource type="PackedScene" uid="uid://drc43o1bwaap8" path="res://Prefabs/player.tscn" id="1_36n78"]
+[ext_resource type="PackedScene" uid="uid://dw7p3lyw4j0l1" path="res://Prefabs/InteractableTest.tscn" id="4_7clhj"]
 [ext_resource type="Script" path="res://Scripts/C#_Scripts/Utility/Settings/Managers/WorldSettingsManager.cs" id="4_c50dc"]
 [ext_resource type="Script" path="res://Scripts/C#_Scripts/Terrain/GrassWorldGenerator.cs" id="5_8vo0s"]
+[ext_resource type="Script" path="res://Scripts/C#_Scripts/UI & HUD/In-Game/InGameUIManager.cs" id="5_o8xn3"]
+[ext_resource type="PackedScene" uid="uid://dsay05nnxyl5c" path="res://Prefabs/UI/In-Game-UI.tscn" id="6_u2oyc"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -14,3 +17,13 @@ script = ExtResource("4_c50dc")
 
 [node name="GrassWorldGenerator" type="Node2D" parent="."]
 script = ExtResource("5_8vo0s")
+
+[node name="InteractableTest" parent="." instance=ExtResource("4_7clhj")]
+position = Vector2(247, -22)
+
+[node name="InGameUIManager" type="Node2D" parent="."]
+script = ExtResource("5_o8xn3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="In-game-ui" parent="CanvasLayer" instance=ExtResource("6_u2oyc")]

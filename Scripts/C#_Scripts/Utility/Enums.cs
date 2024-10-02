@@ -21,5 +21,11 @@ namespace Erikduss
             TERRAIN_HEIGHT_SETTINGS,
             TERRAIN_SIZE_SETTINGS
         }
+
+        public enum DialogType
+        {
+            GAME_MESSAGE,
+            DIALOG
+        }
     }
 }

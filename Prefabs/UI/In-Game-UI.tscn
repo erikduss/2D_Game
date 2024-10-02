@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsay05nnxyl5c"]
+
+[ext_resource type="Script" path="res://Scripts/C#_Scripts/UI & HUD/In-Game/DialogManager.cs" id="1_fn13w"]
+
+[node name="In-game-ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dialog_Panel_Parent" type="AspectRatioContainer" parent="." node_paths=PackedStringArray("dialogTypeLabel", "dialogTextLabel", "mainDialogNode")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -77.0
+offset_right = 200.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_fn13w")
+dialogTypeLabel = NodePath("Dialog_Background_Panel/Dialog_Vertical_Container/Dialog_Type")
+dialogTextLabel = NodePath("Dialog_Background_Panel/Dialog_Vertical_Container/Dialog_Text")
+mainDialogNode = NodePath("Dialog_Background_Panel")
+
+[node name="Dialog_Background_Panel" type="PanelContainer" parent="Dialog_Panel_Parent"]
+custom_minimum_size = Vector2(400, 75)
+layout_mode = 2
+
+[node name="Dialog_Vertical_Container" type="VBoxContainer" parent="Dialog_Panel_Parent/Dialog_Background_Panel"]
+layout_mode = 2
+
+[node name="Dialog_Type" type="Label" parent="Dialog_Panel_Parent/Dialog_Background_Panel/Dialog_Vertical_Container"]
+layout_mode = 2
+text = "????"
+
+[node name="Dialog_Text" type="Label" parent="Dialog_Panel_Parent/Dialog_Background_Panel/Dialog_Vertical_Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "You will be able to see dialog here. This can be either ingame messages or dialog from characters."
+vertical_alignment = 2
+autowrap_mode = 3
